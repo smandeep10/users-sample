@@ -1,0 +1,11 @@
+{
+  "name": "user data",
+  "version": "0.1.0",
+  "dependencies": {
+   "express": "~4.13.4",
+    "body-parser": "~1.15.1",
+    "mongoose": "~4.4.20"
+  },
+  "author": "Mandeep <smandeep10.01@gmail.com>",
+  "description": "A basic user app"
+}
