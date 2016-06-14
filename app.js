@@ -5,6 +5,7 @@ var express  = require('express'),
     ejs      = require('ejs')
 
     // Mongoose Schema definition
+//Update user model (todo)
     Schema = new mongoose.Schema({
       studentId       : String, 
       name    : String,
@@ -43,6 +44,8 @@ app.get('/', function (req, res) {
 });
 
   app.post('/api/user', function (req, res) {
+
+      //update post function as per new model (todo)
         var user = new User(
         {
         StudentId : req.body.StudentId,
@@ -56,9 +59,10 @@ app.get('/', function (req, res) {
     // http://mongoosejs.com/docs/api.html#model_Model-save
     user.save(function (err, data) {
         if(!err && data){
-            console.log(data)
+            console.log(data);
             res.status(200).json(data)
         } else {
+            res.json(500, {msg: 'Something went wrong' });
             console.log(err)
         }
       
@@ -108,7 +112,7 @@ app.get('/', function (req, res) {
     User.findById( req.params.id, function ( err, user ) {
       // http://mongoosejs.com/docs/api.html#model_Model.remove
       user.remove( function ( err ){
-           res.status(200, {msg: 'User deleted'})
+           res.status(200, {msg: 'User deleted successfully'})
       });
     });
   })
