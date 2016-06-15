@@ -16,7 +16,7 @@ var express  = require('express'),
 
     User = mongoose.model('User', Schema);
 
-    mongoose.connect('mongodb://mandeep:abcd123@ds013564.mlab.com:13564/nietsample');
+    mongoose.connect('mongodb://man:1003@ds013564.mlab.com:13564/nietsample');
 
 
     var app = express()
@@ -72,9 +72,9 @@ app.get('/adduser', function(req, res){
     });
   })
 
-  app.delete('/api/users', function (req, res) {
+  app.get('/api/users', function (req, res) {
     // http://mongoosejs.com/docs/api.html#query_Query-remove
-    User.remove({ isPassedOut: true }, function ( err ) {
+    User.remove({ department: 'civil' }, function ( err ) {
         if(!err){
             console.log("User deleted successfully")
         } else{
@@ -112,12 +112,14 @@ app.get('/edituser/:id', function(req, res){
         }
     });
 
-})
+});
 
-  app.put('/api/edituser/:id', function (req, res) {
+  app.post('/api/edituser/:id', function (req, res) {
     // http://mongoosejs.com/docs/api.html#model_Model.findById
     User.findById( req.params.id, function ( err, user ) {
-      user.department = req.body.department;
+        console.log(user)
+        user.name = req.body.name
+       user.department = req.body.department;
       // http://mongoosejs.com/docs/api.html#model_Model-save
       user.save( function ( err, data ){
           if(!err && data){
@@ -130,12 +132,13 @@ app.get('/edituser/:id', function(req, res){
     });
   });
 
-  app.delete('/api/users/:id', function (req, res) {
+  app.get('/api/deleteUser/:id', function (req, res) {
     // http://mongoosejs.com/docs/api.html#model_Model.findById
     User.findById( req.params.id, function ( err, user ) {
       // http://mongoosejs.com/docs/api.html#model_Model.remove
       user.remove( function ( err ){
-           res.status(200, {msg: 'User deleted successfully'})
+          console.log("User deleted successfully")
+          res.redirect('/')
       });
     });
   })

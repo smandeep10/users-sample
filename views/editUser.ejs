@@ -3,6 +3,7 @@
 <head>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
     <style>
         .stylish-panel {
             padding: 20px 0;
@@ -18,33 +19,26 @@
 </head>
 <body>
 <div class="container">
-    <h1 style="text-align: center">User addition form</h1>
+    <h1 style="text-align: center">User edit form</h1>
     <div class="row">
-        <form role="form" method="post" action="/api/adduser" id="contact-form" class="contact-form">
+        <form role="form" method="post" action="/api/edituser/<%=data._id%>" id="contact-form" class="contact-form">
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="Name">First Name</label>
-                        <input type="text" class="form-control" name="name" value="<%=data.name%>"autocomplete="off" id="Name" placeholder="Name">
+                        <input type="text" class="form-control" name="name" value="<%=data.name%>" autocomplete="off" id="Name" placeholder="Name">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="department">Department</label>
-                        <input type="text" class="form-control" name="department" value="<%=data.department%>" autocomplete="off" id="department" placeholder="Enter your email">
+                        <input type="text" class="form-control" name="department" value="<%=data.department%>" autocomplete="off" id="department" placeholder="Enter your department">
                     </div>
                 </div>
             </div>
-            <!--<div class="row">-->
-            <!--<div class="col-md-12">-->
-            <!--<div class="form-group">-->
-            <!--<textarea class="form-control textarea" rows="3" name="Message" id="Message" placeholder="Message"></textarea>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--</div>-->
             <div class="row">
                 <div class="col-md-12">
-                    <button type="submit" class="btn main-btn pull-right btn-success">Add user</button>
+                    <button type="submit" class="btn main-btn pull-right btn-success">Edit user</button>
                 </div>
             </div>
         </form>

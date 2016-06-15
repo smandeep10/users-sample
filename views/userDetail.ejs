@@ -22,11 +22,15 @@
     <div class="row stylish-panel">
         <div class="col-md-4" style="border: 1px solid gray;padding: 10px">
             <div>
-                <img src="http://lorempixel.com/200/200/abstract/4/" alt="Texto Alternativo" class="img-circle img-thumbnail">
-                <h2><%=data.name%></h2>
-                <p><%=data.department%>
-                </p>
-            </div>
+
+            </div>   <img src="http://lorempixel.com/200/200/abstract/4/" alt="Texto Alternativo" class="img-circle img-thumbnail">
+            <h2><%=data.name%></h2>
+            <p><%=data.department%>
+            </p>
+            <a href="/api/deleteUser/<%=data._id%>">
+                <button class="btn btn-danger">Delete User</button>
+            </a>
+
         </div>
     </div>
 </div>
